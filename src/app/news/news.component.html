@@ -1,0 +1,30 @@
+<div>
+  <div class="flex wrap a-center page-name">
+    <h1>
+      {{ 'news' | translate }}
+    </h1>
+  </div>
+  <div class="min-h-100-192 container flex wrap a-center" *ngIf="allNews">
+    <div class="col-33 p-10" *ngFor="let news of pages">
+      <mat-card class="example-card">
+        <img
+          mat-card-image
+          [src]="news.fields.image.fields.file.url"
+          alt="Photo of a Shiba Inu"
+        />
+        <div class="link" (click)="goToDetailPage(news.sys.id)">
+          <mat-card-title>{{ news.fields.title }}</mat-card-title>
+          <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+        </div>
+        <mat-card-content>
+          <p>
+            {{ news.fields.shortDesc }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-100 flex j-center">
+      <app-pagination [pager] = "pager" (setPage)="setPage($event)"></app-pagination>
+    </div>
+  </div>
+</div>

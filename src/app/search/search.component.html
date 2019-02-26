@@ -1,0 +1,59 @@
+<div class="container min-h-100-112">
+  <div
+    *ngIf="searchedNews.length > 0; else loadNews"
+    class="flex wrap pt-28 pb-28"
+  >
+    <h1 class="col-100 capitalize p-10">{{ "news" | translate }}</h1>
+    <div class="col-33 p-10" *ngFor="let news of searchedNews">
+      <mat-card
+        class="example-card link"
+        (click)="goToNewsDetailPage(news.sys.id)"
+      >
+        <img
+          mat-card-image
+          [src]="news.fields.image.fields.file.url"
+          alt="Photo of a Shiba Inu"
+        />
+        <mat-card-title>{{ news.fields.title }}</mat-card-title>
+        <mat-card-content>
+          <p>
+            {{ news.fields.shortDesc | slice: 0:120 }}
+            <span *ngIf="news.fields.shortDesc.length > 120">...</span>
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div
+    *ngIf="searchedParagraphs.length > 0; else loadParagraphs"
+    class="flex wrap pt-28 pb-28"
+  >
+    <h1 class="col-100 capitalize p-10">{{ "paragraph" | translate }}</h1>
+    <div class="col-33 p-10" *ngFor="let paragraph of searchedParagraphs">
+      <mat-card
+        class="example-card link"
+        (click)="goToParagraphsDetailPage(paragraph.fields.title)"
+      >
+        <mat-card-title>{{ paragraph.fields.title }}</mat-card-title>
+        <mat-card-content>
+          <p>
+            {{ paragraph.fields.shortDesc | slice: 0:100 }}
+            <span *ngIf="paragraph.fields.shortDesc.length > 100">...</span>
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <ng-template #loadNews>
+    <h3 class="mt-56 capitalize">
+      {{ "news" | translate }} {{ "notFound" | translate }}
+    </h3>
+    <mat-divider></mat-divider>
+  </ng-template>
+  <ng-template #loadParagraphs>
+    <h3 class="mt-56 capitalize">
+      {{ "paragraph" | translate }} {{ "notFound" | translate }}
+    </h3>
+  </ng-template>
+</div>

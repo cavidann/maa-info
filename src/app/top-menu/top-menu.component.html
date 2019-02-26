@@ -1,0 +1,64 @@
+<header>
+  <div class="example-button-row flex wrap">
+    <div>
+      <button mat-button>
+        <a class="flex" routerLink="/{{ lang }}/home" routerLinkActive="active"
+          >Maa info</a
+        >
+      </button>
+    </div>
+    <div>
+      <button mat-button>
+        <a
+          class="flex"
+          routerLink="/{{ lang }}/paragraph"
+          routerLinkActive="active"
+          >{{ "paragraph" | translate }}</a
+        >
+      </button>
+      <button mat-button>
+        <a
+          class="flex"
+          routerLink="/{{ lang }}/news"
+          routerLinkActive="active"
+          >{{ "news" | translate }}</a
+        >
+      </button>
+      <button mat-button>
+        <a
+          class="flex"
+          [routerLink]="[{ outlets: { popup: ['contactus'] } }]"
+          >{{ "contactForm.formName" | translate }}</a
+        >
+      </button>
+    </div>
+    <div class="flex group-3">
+      <div class="search flex">
+        <form
+          class="flex"
+          [formGroup]="searchForm"
+          (ngSubmit)="searchContent(searchForm.value)"
+        >
+          <input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="{{ 'search' |translate }}..."
+            formControlName="search"
+          />
+          <button
+
+            type="submit"
+            class="search-btn"
+            [class.active]="searchForm.valid"
+            [disabled]="!searchForm.valid"
+          >
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </form>
+      </div>
+      <button mat-button (click)="switchLanguage('ru')"><a>ru</a></button>
+      <button mat-button (click)="switchLanguage('az')"><a>az</a></button>
+    </div>
+  </div>
+</header>

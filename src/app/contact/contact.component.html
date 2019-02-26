@@ -1,0 +1,181 @@
+<div class="panel-body">
+  <a (click)="cancel()" style="cursor: pointer">
+    <i class="fa fa-times" aria-hidden="true"></i>
+  </a>
+  <h4 class="t-center">
+    <i class="fa fa-envelope" aria-hidden="true"></i>
+    {{ 'contactForm.formName' | translate}}
+  </h4>
+  <form
+    [formGroup]="contactusForm"
+    (ngSubmit)="sendMessage(contactusForm.value)"
+    class="example-form"
+  >
+    <div class="form-group names flex wrap">
+      <mat-form-field class="example-full-width col-50">
+        <input
+          matInput
+          type="text"
+          class="form-control input-lg"
+          name="firstName"
+          placeholder="{{ 'contactForm.fname'  | translate }}"
+          formControlName="firstName"
+        />
+      </mat-form-field>
+      <mat-form-field class="example-full-width col-50">
+        <input
+          matInput
+          type="text"
+          class="form-control input-lg"
+          name="{{ 'contactForm.lname'  | translate }}"
+          placeholder="Last Name"
+          formControlName="lastName"
+        />
+      </mat-form-field>
+
+      <div
+        class="alert alert-danger col-50"
+        *ngIf="firstName.touched && firstName.invalid"
+      >
+        <mat-error *ngIf="(firstName?.errors)['required']" class="red">
+          {{ 'contactForm.fname' | translate }}
+          {{ 'contactForm.error.empty' | translate }}
+        </mat-error>
+      </div>
+
+      <div
+        class="alert alert-danger col-50"
+        *ngIf="lastName.touched && lastName.invalid"
+      >
+        <mat-error *ngIf="(lastName?.errors)['required']" class="red">
+          {{ 'contactForm.lname' | translate }}
+          {{ 'contactForm.error.empty' | translate }}
+        </mat-error>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          type="text"
+          class="form-control input-lg"
+          name="email"
+          placeholder="{{ 'contactForm.email'  | translate }}"
+          formControlName="email"
+        />
+      </mat-form-field>
+
+      <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+        <mat-error *ngIf="(email?.errors)['required']" class="red">
+            {{ 'contactForm.email' | translate }}
+            {{ 'contactForm.error.empty' | translate }}
+        </mat-error>
+        <mat-error *ngIf="(email?.errors)['email']" class="red">
+            {{ 'contactForm.email' | translate }}
+            {{ 'contactForm.error.false' | translate }}
+        </mat-error>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="example-full-width">
+        <textarea
+          matInput
+          cols="20"
+          rows="10"
+          name="message"
+          placeholder="{{ 'contactForm.msg'  | translate }}"
+          formControlName="message"
+        ></textarea>
+      </mat-form-field>
+      <div
+        class="alert alert-danger"
+        *ngIf="message.touched && message.invalid"
+      >
+        <mat-error *ngIf="(message?.errors)['required']" class="red">
+            {{ 'contactForm.msg' | translate }}
+            {{ 'contactForm.error.empty' | translate }}
+        </mat-error>
+      </div>
+    </div>
+
+    <div class="example-button-row">
+      <button
+        mat-raised-button
+        color="primary"
+        *ngIf="!sending"
+        type="submit"
+        class="btn btn-block btn-success"
+        [disabled]="!contactusForm.valid"
+      >
+      {{ 'contactForm.send'  | translate }}
+      </button>
+    </div>
+  </form>
+</div>
+<!-- <div class="panel-body">
+  <a (click)="cancel()" style="cursor: pointer">
+    <i class="fa fa-times" aria-hidden="true"></i>
+  </a>
+  <h4 class="t-center">
+    <i class="fa fa-envelope" aria-hidden="true"></i>
+    {{'contactForm.formName' | translate}}
+  </h4>
+  <form class="example-form" action="https://formspree.io/cavi98@icloud.com" method="POST">
+    <div class="form-group names flex wrap">
+      <mat-form-field class="example-full-width col-50">
+        <input
+          matInput
+          type="text"
+          class="form-control input-lg"
+          name="firstName"
+          placeholder="{{'contactForm.fname' | translate}}"
+        />
+      </mat-form-field>
+      <mat-form-field class="example-full-width col-50">
+        <input
+          matInput
+          type="text"
+          class="form-control input-lg"
+          name="lastName"
+          placeholder="{{'contactForm.lname' | translate}}"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          type="text"
+          class="form-control input-lg"
+          name="email"
+          placeholder="{{'contactForm.email' | translate}}"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="example-full-width">
+        <textarea
+          matInput
+          cols="20"
+          rows="10"
+          name="message"
+          placeholder="{{'contactForm.msg' | translate}}"
+        ></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="example-button-row">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+      >
+        {{'contactForm.send' | translate}}
+      </button>
+    </div>
+  </form>
+</div> -->

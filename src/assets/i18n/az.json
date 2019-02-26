@@ -1,0 +1,22 @@
+{
+  "paragraph": "paraqraflar",
+  "news": "xəbərlər",
+  "start-learn": "öyrənməyə başla",
+  "posts": "son  postlar",
+  "back": "geri get",
+  "search": "axtar",
+  "goHome": "evə get",
+  "notFound": "tapılmadı",
+  "contactForm": {
+    "formName": "əlaqə",
+    "fname": "ad",
+    "lname": "soyad",
+    "email": "email",
+    "msg": "mesaj",
+    "send": "mesajı göndər",
+    "error": {
+      "empty": "boşdur",
+      "false": "səhvdir"
+    }
+  }
+}

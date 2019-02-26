@@ -1,0 +1,17 @@
+footer{
+  width: 100%;
+  height: 56px;
+  background: #3f51b5;
+  color: white;
+  padding: 0px 25px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  a{
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+  }
+}

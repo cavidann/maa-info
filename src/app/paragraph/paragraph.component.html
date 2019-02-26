@@ -1,0 +1,33 @@
+<div>
+  <div class="flex a-center page-name">
+    <i class="fa fa-bars link" (click)="setCondition()" aria-hidden="true"></i>
+    <h1 *ngIf="isParagraphSelected && lesson; else learnTxt">
+      {{ lesson.fields.title }}
+    </h1>
+    <ng-template #learnTxt><h1 class="capitalize">{{ 'start-learn' | translate }}</h1></ng-template>
+  </div>
+  <div class="flex min-h-100-192">
+    <div
+      class="layout link"
+      [class.active]="isOpen"
+      (click)="setCondition()"
+    ></div>
+    <div class="w-240" [class.active]="isOpen">
+      <app-side-menu (outLesson)="getLesson($event)"></app-side-menu>
+    </div>
+    <div class="content" *ngIf="isParagraphSelected && lesson; else learn">
+      <div *ngIf="lesson !== undefined; else load">
+        <h1>{{ lesson.fields.title }}</h1>
+        <div [innerHTML]="lesson.fields.content | mdToHtml"></div>
+      </div>
+    </div>
+    <ng-template #learn>
+      <h1 class="capitalize p-10">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        {{ 'start-learn' | translate }}
+      </h1>
+    </ng-template>
+    <ng-template #load>load</ng-template>
+  </div>
+  <!-- <app-footer></app-footer> -->
+</div>

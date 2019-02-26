@@ -1,0 +1,25 @@
+<ul *ngIf="pager" class="col-md-100 pagination">
+  <li>
+    <a [class.disabled]="pager.currentPage == 1" (click)="setCurrentPage(1)">
+      <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a [class.disabled]="pager.currentPage == 1" (click)="setCurrentPage(pager.currentPage - 1)">
+      <i class="fa fa-angle-left" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li *ngFor="let page of pager.pages">
+    <a [class.active]="pager.currentPage == page" (click)="setCurrentPage(page)">{{ page }}</a>
+  </li>
+  <li>
+    <a [class.disabled]="pager.currentPage == pager.totalPages" (click)="setCurrentPage(pager.currentPage + 1)">
+      <i class="fa fa-angle-right" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a [class.disabled]="pager.currentPage == pager.totalPages" (click)="setCurrentPage(pager.totalPages)">
+      <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>

@@ -1,0 +1,228 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica,
+    Arial, "Lucida Grande", sans-serif;
+    position: relative;
+}
+
+
+*{
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #b3b3b3;
+}
+
+.flex {
+  display: flex;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.a-center {
+  align-items: center;
+}
+
+.j-center {
+  justify-content: center;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.container {
+  // max-width: 920px;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.col-25 {
+  width: 25%;
+}
+
+.col-33 {
+  width: 33.33%;
+}
+
+.col-50 {
+  width: 50%;
+}
+
+.col-100{
+  width: 100%;
+}
+
+.link{
+  cursor: pointer;
+}
+
+img{
+  width: 100%;
+}
+
+.p-10{
+  padding: 10px;
+}
+
+.mt-56{
+  margin-top: 56px;
+}
+
+.pt-28{
+  padding-top: 28px;
+}
+
+.pb-28{
+  padding-bottom: 28px;
+}
+
+.h-100{
+  height:calc(100vh - 56px);
+  overflow: auto
+}
+
+.h-100-112{
+  height:calc(100vh - 112px);
+  overflow: auto
+}
+
+.min-h-100-112{
+  min-height:calc(100vh - 112px);
+  overflow: auto
+}
+
+.min-h-100-56{
+  min-height: calc(100vh - 56px);
+}
+
+.min-h-100-192{
+  min-height: calc(100vh - 192px);
+}
+
+.page-name{
+  width: 100%;
+  // margin-top: 56px;
+  background: #3f51b5;
+  height: 80px;
+  color: white;
+  padding-left: 20px;
+  box-sizing: border-box;
+  h1{
+    font-weight: 300;
+    margin: 0;
+    padding: 28px 8px;
+    font-size: 20px;
+    color: #fff;
+    text-transform: capitalize;
+  }
+}
+
+.capitalize{
+  text-transform: capitalize;
+}
+
+* {
+  animation: example;
+  animation-duration: 1s;
+}
+
+button div, form *{
+  animation-duration: 0s;
+}
+
+@keyframes example {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@media only screen and (max-width: 1024px){
+  .container{
+    max-width: 920px;
+  }
+  .content{
+    padding-left: 0px;
+    padding-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 812px){
+  .col-33{
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 728px){
+  header{
+    height: 90px!important;
+  }
+  .mt-56{
+    margin-top: 90px;
+  }
+
+  .h-100{
+    height: calc(100vh - 90px);
+  }
+
+  .group-3{
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media only screen and (max-width: 728px){
+  .col-33{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 378px){
+  header{
+    padding: 8px!important;
+    a{
+      padding: 0px 8px!important;
+    }
+    form{
+      input{
+        width: 100%;
+      }
+    }
+  }
+  footer{
+    padding: 8px!important;
+    p{
+      width: 100%;
+    }
+  }
+}
+
+// .content{
+//   div{
+//     div{
+
+//       * img{
+//         width: 50%;
+//         // float: left;
+//       }
+//       *{
+//         float: left;
+//       }
+//     }
+//   }
+// }

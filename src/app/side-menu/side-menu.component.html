@@ -1,0 +1,22 @@
+<!-- <mat-accordion> -->
+<mat-expansion-panel
+  [expanded]="!false"
+  *ngFor="let paragraph of allParagraphs"
+>
+  <mat-expansion-panel-header style="height: 48px!important;">
+    <mat-panel-title>
+      {{ paragraph.fields.paragraph }}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <mat-list role="list">
+    <mat-list-item role="listitem" *ngFor="let info of paragraph.fields.info">
+      <a
+        routerLink="/{{ lang }}/paragraph/{{ info }}"
+        routerLinkActive="active"
+        (click)="getLesson(info)"
+        >{{ info }}</a
+      >
+    </mat-list-item>
+  </mat-list>
+</mat-expansion-panel>
+<!-- </mat-accordion> -->

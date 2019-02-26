@@ -1,0 +1,20 @@
+<div *ngIf="news">
+  <div class="flex a-center page-name">
+    <h1>{{ "news" | translate }} - {{ news.fields.title }}</h1>
+  </div>
+  <div class="min-h-100-192 container">
+    <img [src]="news.fields.image.fields.file.url" alt="news.fields.title" />
+    <h1>{{ news.fields.title }}</h1>
+    <div [innerHTML]="news.fields.longDesc | mdToHtml"></div>
+    <div class="example-button-row">
+      <button
+        mat-raised-button
+        color="primary"
+        class="capitalize"
+        (click)="getBack()"
+      >
+        {{ "back" | translate }}
+      </button>
+    </div>
+  </div>
+</div>
