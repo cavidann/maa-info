@@ -212,17 +212,20 @@ button div, form *{
   }
 }
 
-// .content{
-//   div{
-//     div{
+.content{
+  .left{
+    img{
+      float: left;
+    }
+  }
+  .right{
+    img{
+      float: right;
+    }
+  }
+  img{
+    margin: 10px;
+    width: 50%!important;
 
-//       * img{
-//         width: 50%;
-//         // float: left;
-//       }
-//       *{
-//         float: left;
-//       }
-//     }
-//   }
-// }
+  }
+}

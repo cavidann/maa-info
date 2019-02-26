@@ -2,6 +2,11 @@
   background: #f2f2f2;
 }
 
+*:hover{
+  *{
+    background: #f2f2f2!important;
+  }
+}
 .mat-expansion-panel:not([class*=mat-elevation-z]) {
   box-shadow: none;
 }
