@@ -152,6 +152,23 @@ button div, form *{
   to {opacity: 1;}
 }
 
+.content{
+  .left{
+    img{
+      float: left;
+    }
+  }
+  .right{
+    img{
+      float: right;
+    }
+  }
+  img{
+    margin: 10px;
+    width: 50%!important;
+  }
+}
+
 @media only screen and (max-width: 1024px){
   .container{
     max-width: 920px;
@@ -186,9 +203,25 @@ button div, form *{
   }
 }
 
-@media only screen and (max-width: 728px){
+@media only screen and (max-width: 667px){
   .col-33{
     width: 100%;
+  }
+  .content{
+    .left{
+      img{
+        float: none;
+      }
+    }
+    .right{
+      img{
+        float: none;
+      }
+    }
+    img{
+      margin: 10px 0px;
+      width: 100%!important;
+    }
   }
 }
 
@@ -212,20 +245,4 @@ button div, form *{
   }
 }
 
-.content{
-  .left{
-    img{
-      float: left;
-    }
-  }
-  .right{
-    img{
-      float: right;
-    }
-  }
-  img{
-    margin: 10px;
-    width: 50%!important;
 
-  }
-}
