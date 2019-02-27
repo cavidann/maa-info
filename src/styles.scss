@@ -153,20 +153,44 @@ button div, form *{
 }
 
 .content{
+  p{
+    // text-indent: 30px;
+  }
   .left{
     img{
+      width: 50%!important;
+      margin: 10px;
       float: left;
     }
   }
   .right{
     img{
+      width: 50%!important;
+      margin: 10px;
       float: right;
     }
   }
   img{
-    margin: 10px;
-    width: 50%!important;
+    width: 100%!important;
   }
+}
+
+table{
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.b-br-tb{
+  overflow: auto;
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+}
+
+th, td {
+  padding: 5px 10px;
+  text-align: left;
 }
 
 @media only screen and (max-width: 1024px){
@@ -211,16 +235,18 @@ button div, form *{
     .left{
       img{
         float: none;
+        width: 100%!important;
       }
     }
     .right{
       img{
         float: none;
+        width: 100%!important;
       }
     }
     img{
-      margin: 10px 0px;
-      width: 100%!important;
+      margin: 0px!important;
+      // width: 100%!important;
     }
   }
 }

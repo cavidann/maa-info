@@ -17,7 +17,7 @@
     </div>
     <div class="content" *ngIf="isParagraphSelected && lesson; else learn">
       <div *ngIf="lesson !== undefined; else load">
-        <h1>{{ lesson.fields.title }}</h1>
+        <!-- <h1>{{ lesson.fields.title }}</h1> -->
         <div [innerHTML]="lesson.fields.content | mdToHtml"></div>
       </div>
     </div>

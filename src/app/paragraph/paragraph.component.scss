@@ -1,6 +1,6 @@
 .w-240{
   margin: 25px;
-  width: 240px;
+  width: 330px;
   max-height: 75vh;
   overflow: auto;
   border-right: none;
@@ -15,7 +15,7 @@
 
 
 .content{
-  width: calc(100% - 240px);
+  width: calc(100% - 330px);
   padding: 25px 50px;
   padding-left: 25px;
   box-sizing: border-box;
