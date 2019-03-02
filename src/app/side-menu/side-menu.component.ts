@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContentfulService } from '../services/contentful.service';
 import { Entry } from 'contentful';
@@ -11,32 +11,22 @@ import { Entry } from 'contentful';
 export class SideMenuComponent implements OnInit {
 
   lang: string;
-  allParagraphs: Entry<any>[] = [];
+  // allParagraphs: Entry<any>[] = [];
 
+  @Input() allParagraphs: Entry<any>[] = [];
+  @Input() page: string;
   @Output() outLesson: EventEmitter<any> = new EventEmitter();
 
 
   constructor(
     private router: Router,
-    private contentfulService: ContentfulService
   ) { }
 
   ngOnInit() {
     this.lang = this.router.url.substring(1, 3);
-    this.getParagraphs(this.lang);
-  }
-
-  getParagraphs(lang) {
-    this.contentfulService.getParagraphs(lang)
-    .then(paragraph => {
-      this.allParagraphs = paragraph;
-      // console.log(this.allParagraphs);
-    });
   }
 
   getLesson(title) {
-    // console.log(title);
-
     this.outLesson.emit(title);
   }
 

@@ -28,13 +28,43 @@ export class ContentfulService {
       .then(res => res.items);
   }
 
+  getVideosParagraph(locale = 'ru', query?: object): Promise<Entry<any>[]> {
+    return this.client
+      .getEntries(
+        Object.assign(
+          {
+            content_type: 'videoSideMenu',
+            order: 'sys.createdAt',
+            locale: locale
+          },
+          query
+        )
+      )
+      .then(res => res.items);
+  }
+
   getLessonsContent(locale = 'ru', query?: object): Promise<Entry<any>[]> {
     return this.client
       .getEntries(
         Object.assign(
           {
             content_type: 'lessonContent',
-            order: 'sys.createdAt',
+            order: '-sys.createdAt',
+            locale: locale
+          },
+          query
+        )
+      )
+      .then(res => res.items);
+  }
+
+  getVideosContent(locale = 'ru', query?: object): Promise<Entry<any>[]> {
+    return this.client
+      .getEntries(
+        Object.assign(
+          {
+            content_type: 'videoContent',
+            order: '-sys.createdAt',
             locale: locale
           },
           query
@@ -49,6 +79,20 @@ export class ContentfulService {
         Object.assign(
           {
             content_type: 'lessonContent',
+            locale: locale
+          },
+          { 'fields.title': title }
+        )
+      )
+      .then(res => res.items[0]);
+  }
+
+  getVideoContent(locale = 'ru', title): Promise<Entry<any>> {
+    return this.client
+      .getEntries(
+        Object.assign(
+          {
+            content_type: 'videoContent',
             locale: locale
           },
           { 'fields.title': title }

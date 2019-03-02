@@ -19,6 +19,14 @@
       <button mat-button>
         <a
           class="flex"
+          routerLink="/{{ lang }}/videos"
+          routerLinkActive="active"
+          >{{ "videos" | translate }}</a
+        >
+      </button>
+      <button mat-button>
+        <a
+          class="flex"
           routerLink="/{{ lang }}/news"
           routerLinkActive="active"
           >{{ "news" | translate }}</a

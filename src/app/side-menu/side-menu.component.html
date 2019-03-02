@@ -1,4 +1,7 @@
 <!-- <mat-accordion> -->
+  <!-- <div>
+    {{page}}
+  </div> -->
 <mat-expansion-panel
   [expanded]="!false"
   *ngFor="let paragraph of allParagraphs"
@@ -11,7 +14,7 @@
   <mat-list role="list">
     <mat-list-item role="listitem" *ngFor="let info of paragraph.fields.info">
       <a
-        routerLink="/{{ lang }}/paragraph/{{ info }}"
+        routerLink="/{{ lang }}/{{ page }}/{{ info }}"
         routerLinkActive="active"
         (click)="getLesson(info)"
         >{{ info }}</a

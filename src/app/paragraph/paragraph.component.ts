@@ -15,6 +15,8 @@ export class ParagraphComponent implements OnInit {
   lesson:  Entry<any>;
   lang: string;
   isParagraphSelected: boolean;
+  allParagraphs: Entry<any>[] = [];
+  page = 'paragraph';
 
   constructor(
     private route: ActivatedRoute,
@@ -30,6 +32,16 @@ export class ParagraphComponent implements OnInit {
     this.getLesson(this.id);
 
     this.checkParagraphLink();
+
+    this.lang = this.router.url.substring(1, 3);
+    this.getParagraphs(this.lang);
+  }
+
+  getParagraphs(lang) {
+    this.contentfulService.getParagraphs(lang)
+    .then(paragraph => {
+      this.allParagraphs = paragraph;
+    });
   }
 
   setCondition() {

@@ -2,7 +2,7 @@
   <div class="flex a-center page-name">
     <i class="fa fa-bars link" (click)="setCondition()" aria-hidden="true"></i>
     <h1 *ngIf="isParagraphSelected && lesson; else learnTxt">
-      {{ lesson.fields.title }}
+      <b>{{ 'paragraph' | translate }}</b> - {{ lesson.fields.title }}
     </h1>
     <ng-template #learnTxt><h1 class="capitalize">{{ 'start-learn' | translate }}</h1></ng-template>
   </div>
@@ -13,7 +13,7 @@
       (click)="setCondition()"
     ></div>
     <div class="w-240" [class.active]="isOpen">
-      <app-side-menu (outLesson)="getLesson($event)"></app-side-menu>
+      <app-side-menu [allParagraphs]="allParagraphs" [page]="page" (outLesson)="getLesson($event)"></app-side-menu>
     </div>
     <div class="content" *ngIf="isParagraphSelected && lesson; else learn">
       <div *ngIf="lesson !== undefined; else load">

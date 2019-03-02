@@ -1,8 +1,10 @@
 <div *ngIf="news">
   <div class="flex a-center page-name">
-    <h1>{{ "news" | translate }} - {{ news.fields.title }}</h1>
+    <h1>
+      <b>{{ "news" | translate }} </b>- {{ news.fields.title }}
+    </h1>
   </div>
-  <div class="min-h-100-192 container">
+  <div class="min-h-100-192 container pt-28 pb-28">
     <img [src]="news.fields.image.fields.file.url" alt="news.fields.title" />
     <h1>{{ news.fields.title }}</h1>
     <div [innerHTML]="news.fields.longDesc | mdToHtml"></div>

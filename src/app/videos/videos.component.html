@@ -1,0 +1,44 @@
+<div>
+  <div class="flex a-center page-name">
+    <i class="fa fa-bars link" (click)="setCondition()" aria-hidden="true"></i>
+    <h1 *ngIf="isParagraphSelected && video; else learnTxt">
+      <b>{{ "videos" | translate }} </b>- {{ video.fields.title }}
+    </h1>
+    <ng-template #learnTxt
+      ><h1 class="capitalize">{{ "start-learn" | translate }}</h1></ng-template
+    >
+  </div>
+  <div class="flex min-h-100-192">
+    <div
+      class="layout link"
+      [class.active]="isOpen"
+      (click)="setCondition()"
+    ></div>
+    <div class="w-240" [class.active]="isOpen">
+      <app-side-menu
+        [allParagraphs]="allVideos"
+        [page]="page"
+        (outLesson)="getVideo($event)"
+      ></app-side-menu>
+    </div>
+    <div class="content" *ngIf="isParagraphSelected && video; else learn">
+      <div *ngIf="video !== undefined; else load">
+        <iframe
+          class="col-100 min-h-100-192 e2e-iframe-trusted-src"
+          [src]="videoUrl"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+    <ng-template #learn>
+      <h1 class="capitalize p-10">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        {{ "start-learn" | translate }}
+      </h1>
+    </ng-template>
+    <ng-template #load>load</ng-template>
+  </div>
+  <!-- <app-footer></app-footer> -->
+</div>

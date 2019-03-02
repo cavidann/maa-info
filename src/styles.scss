@@ -6,7 +6,8 @@ body {
   margin: 0px;
   font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica,
     Arial, "Lucida Grande", sans-serif;
-    position: relative;
+  position: relative;
+  background: #fafafa;
 }
 
 
@@ -16,6 +17,7 @@ body {
 
 ::-webkit-scrollbar {
   width: 4px;
+  height: 2px;
 }
 
 ::-webkit-scrollbar-track {
@@ -69,6 +71,10 @@ body {
   width: 100%;
 }
 
+.col-count3{
+  column-count: 3;
+}
+
 .link{
   cursor: pointer;
 }
@@ -83,6 +89,10 @@ img{
 
 .mt-56{
   margin-top: 56px;
+}
+
+.mb-16{
+  margin-bottom: 16px;
 }
 
 .pt-28{
@@ -207,12 +217,11 @@ th, td {
   .col-33{
     width: 50%;
   }
-}
 
-@media only screen and (max-width: 728px){
   header{
     height: 90px!important;
   }
+
   .mt-56{
     margin-top: 90px;
   }
@@ -251,6 +260,32 @@ th, td {
   }
 }
 
+@media only screen and (max-width: 465px){
+  header>div>div:nth-child(2){
+    width: 70%;
+    overflow-x: auto;
+    display: inherit;
+  }
+  .mat-button{
+    min-width: auto!important;
+  }
+  .group-3{
+    margin-top: 6px;
+  }
+
+  header{
+    height: 94px!important;
+  }
+
+  .mt-56{
+    margin-top: 94px;
+  }
+
+  .h-100{
+    height: calc(100vh - 94px);
+  }
+}
+
 @media only screen and (max-width: 378px){
   header{
     padding: 8px!important;
@@ -270,5 +305,3 @@ th, td {
     }
   }
 }
-
-

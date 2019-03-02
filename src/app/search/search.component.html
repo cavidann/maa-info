@@ -12,13 +12,16 @@
         <img
           mat-card-image
           [src]="news.fields.image.fields.file.url"
-          alt="Photo of a Shiba Inu"
+          alt="Photo of a {{news.fields.title}}"
         />
-        <mat-card-title>{{ news.fields.title }}</mat-card-title>
+        <mat-card-title class="capitalize">
+          {{ news.fields.title | slice: 0:40 }}
+          <span *ngIf="news.fields.title.length > 40">...</span>
+        </mat-card-title>
         <mat-card-content>
           <p>
-            {{ news.fields.shortDesc | slice: 0:120 }}
-            <span *ngIf="news.fields.shortDesc.length > 120">...</span>
+            {{ news.fields.shortDesc | slice: 0:100 }}
+            <span *ngIf="news.fields.shortDesc.length > 100">...</span>
           </p>
         </mat-card-content>
       </mat-card>
@@ -35,13 +38,41 @@
         class="example-card link"
         (click)="goToParagraphsDetailPage(paragraph.fields.title)"
       >
-        <mat-card-title>{{ paragraph.fields.title }}</mat-card-title>
+        <mat-card-title class="capitalize">
+          {{ paragraph.fields.title | slice: 0:40 }}
+          <span *ngIf="paragraph.fields.title.length > 40">...</span>
+        </mat-card-title>
         <mat-card-content>
           <p>
             {{ paragraph.fields.shortDesc | slice: 0:100 }}
             <span *ngIf="paragraph.fields.shortDesc.length > 100">...</span>
           </p>
         </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div
+    *ngIf="searchedVideos.length > 0; else loadVideos"
+    class="flex wrap pt-28 pb-28"
+  >
+    <h1 class="col-100 capitalize p-10">{{ "videos" | translate }}</h1>
+    <div class="col-33 p-10" *ngFor="let videos of searchedVideos">
+      <mat-card
+        class="example-card link"
+        (click)="goToVideosDetailPage(videos.fields.title)"
+      >
+      <div>
+        <img
+            mat-card-image
+            src="//img.youtube.com/vi/{{videos.fields.videoId}}/0.jpg"
+            alt="Photo of a {{videos.fields.title}}"
+          />
+      </div>
+        <mat-card-title class="capitalize">
+          {{ videos.fields.title | slice: 0:40 }}
+          <span *ngIf="videos.fields.title.length > 40">...</span>
+        </mat-card-title>
       </mat-card>
     </div>
   </div>
@@ -54,6 +85,12 @@
   <ng-template #loadParagraphs>
     <h3 class="mt-56 capitalize">
       {{ "paragraph" | translate }} {{ "notFound" | translate }}
+    </h3>
+    <mat-divider></mat-divider>
+  </ng-template>
+  <ng-template #loadVideos>
+    <h3 class="mt-56 capitalize">
+      {{ "videos" | translate }} {{ "notFound" | translate }}
     </h3>
   </ng-template>
 </div>

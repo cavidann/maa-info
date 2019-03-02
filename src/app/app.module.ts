@@ -22,6 +22,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { ParagraphComponent } from './paragraph/paragraph.component';
+import { VideosComponent } from './videos/videos.component';
 import { HomeComponent } from './home/home.component';
 import { NewsComponent } from './news/news.component';
 import { DetailsComponent } from './details/details.component';
@@ -35,54 +36,53 @@ import { MdToHtmlPipe } from './pipes/md-to-html.pipe';
 
 import { PagerService } from './services/pager.service';
 
-// const routes: Routes = [
-//   { path: '', redirectTo: 'az/home', pathMatch: 'full' },
-//   { path: ':lang/home', component: HomeComponent},
-//   { path: ':lang/paragraph', children: [
-//     { path: '', redirectTo: 'learn', pathMatch: 'full' },
-//     { path: 'learn', component: ParagraphComponent },
-//     { path: ':id', component: ParagraphComponent}
-//   ]},
-//   { path: ':lang/news', children: [
-//     { path: '', redirectTo: '1', pathMatch: 'full' },
-//     { path: ':id', component: NewsComponent }
-//   ]},
-//   { path: ':lang/details/:id', component: DetailsComponent },
-//   { path: 'contactus', component: ContactComponent, outlet: 'popup'},
-//   { path: ':lang/search/:id', component: SearchComponent },
-//   { path: 'error', component: NotFoundComponent },
-//   { path: '**', redirectTo: 'error', pathMatch: 'full' }
-// ];
-
 const routes: Routes = [
+
+  // azerbaijani
+
   { path: '', redirectTo: 'az/home', pathMatch: 'full' },
   { path: 'az/home', component: HomeComponent},
-  { path: 'ru/home', component: HomeComponent},
   { path: 'az/paragraph', children: [
     { path: '', redirectTo: 'learn', pathMatch: 'full' },
     { path: 'learn', component: ParagraphComponent },
     { path: ':id', component: ParagraphComponent}
   ]},
-  { path: 'ru/paragraph', children: [
+  { path: 'az/videos', children: [
     { path: '', redirectTo: 'learn', pathMatch: 'full' },
-    { path: 'learn', component: ParagraphComponent },
-    { path: ':id', component: ParagraphComponent}
+    { path: 'learn', component: VideosComponent },
+    { path: ':id', component: VideosComponent}
   ]},
   { path: 'az/news', children: [
     { path: '', redirectTo: '1', pathMatch: 'full' },
     { path: ':id', component: NewsComponent }
   ]},
+  { path: 'az/details/:id', component: DetailsComponent },
+  { path: 'az/search/:id', component: SearchComponent },
+
+  // russian
+
+  { path: 'ru/home', component: HomeComponent},
+  { path: 'ru/paragraph', children: [
+    { path: '', redirectTo: 'learn', pathMatch: 'full' },
+    { path: 'learn', component: ParagraphComponent },
+    { path: ':id', component: ParagraphComponent}
+  ]},
+  { path: 'ru/videos', children: [
+    { path: '', redirectTo: 'learn', pathMatch: 'full' },
+    { path: 'learn', component: VideosComponent },
+    { path: ':id', component: VideosComponent}
+  ]},
   { path: 'ru/news', children: [
     { path: '', redirectTo: '1', pathMatch: 'full' },
     { path: ':id', component: NewsComponent }
   ]},
-  { path: 'az/details/:id', component: DetailsComponent },
   { path: 'ru/details/:id', component: DetailsComponent },
-  { path: 'contactus', component: ContactComponent, outlet: 'popup'},
-  { path: 'az/search/:id', component: SearchComponent },
   { path: 'ru/search/:id', component: SearchComponent },
-  { path: 'az/error', component: NotFoundComponent },
-  { path: '**', redirectTo: 'az/error', pathMatch: 'full' }
+
+  { path: 'contactus', component: ContactComponent, outlet: 'popup'},
+
+  // { path: 'az/error', component: NotFoundComponent },
+  // { path: '**', redirectTo: 'az/error', pathMatch: 'full' }
 ];
 
 // AoT requires an exported function for factories
@@ -105,7 +105,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DetailsComponent,
     PaginationComponent,
     SearchComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    VideosComponent
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit {
 
   searchedNews: Entry<any>[] = [];
   searchedParagraphs: Entry<any>[] = [];
+  searchedVideos: Entry<any>[] = [];
   // keyWord: string;
   keyWord = this.route.snapshot.paramMap.get('id').toLocaleLowerCase();
   lang: string;
@@ -27,20 +28,11 @@ export class SearchComponent implements OnInit {
     this.lang = this.router.url.substring(1, 3);
 
     this.search(this.lang, this.keyWord);
-
-    // this.router.events.subscribe(
-    //   () => {
-    //     this.keyWord = this.route.snapshot.paramMap.get('id').toLocaleLowerCase();
-    //     this.search(this.lang, this.keyWord);
-    //   }
-    // );
   }
 
   search(lang, keyWord) {
     this.contentfulService.getAllNews(lang)
     .then(news => {
-      // const keyWord = this.route.snapshot.paramMap.get('id');
-
       this.searchedNews = news.filter(function(item) {
           return JSON.stringify(item).toLowerCase().includes(keyWord);
         }
@@ -49,9 +41,15 @@ export class SearchComponent implements OnInit {
 
     this.contentfulService.getLessonsContent(lang)
     .then(paragraps => {
-      // const keyWord = this.route.snapshot.paramMap.get('id');
-
       this.searchedParagraphs = paragraps.filter(function(item) {
+          return JSON.stringify(item).toLowerCase().includes(keyWord);
+        }
+      );
+    });
+
+    this.contentfulService.getVideosContent(lang)
+    .then(paragraps => {
+      this.searchedVideos = paragraps.filter(function(item) {
           return JSON.stringify(item).toLowerCase().includes(keyWord);
         }
       );
@@ -65,6 +63,10 @@ export class SearchComponent implements OnInit {
 
   goToParagraphsDetailPage(paragraphTitle){
     this.router.navigate([this.lang + '/paragraph', paragraphTitle]);
+  }
+
+  goToVideosDetailPage(videoTitle){
+    this.router.navigate([this.lang + '/videos', videoTitle]);
   }
 
 }
