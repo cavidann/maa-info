@@ -3,6 +3,7 @@
   "videos": "videolar",
   "news": "xəbərlər",
   "start-learn": "öyrənməyə başla",
+  "more": "daha çox",
   "posts": "son  postlar",
   "back": "geri get",
   "search": "axtar",
@@ -19,5 +20,9 @@
       "empty": "boşdur",
       "false": "səhvdir"
     }
+  },
+  "homeTitle": {
+    "title-1": "Müassir Təyyarələrin Yanacaq Sistemləri",
+    "title-2": "Üçün Məlumatlar"
   }
 }
