@@ -103,6 +103,10 @@ img{
   padding-bottom: 28px;
 }
 
+.pl-120{
+  padding-left: 120px;
+}
+
 .h-100{
   height:calc(100vh - 56px);
   overflow: auto
@@ -211,6 +215,9 @@ th, td {
     padding-left: 0px;
     padding-right: 20px;
   }
+  .pl-120{
+    padding-left: 50px;
+  }
 }
 
 @media only screen and (max-width: 812px){
@@ -233,6 +240,22 @@ th, td {
   .group-3{
     width: 100%;
     justify-content: flex-end;
+  }
+
+  .home-sc, .video-sc, .paragraph-sc, .news-sc{
+    margin-bottom: 40px;
+    &>div{
+      min-height: calc(100vh - 90px)!important;
+      h1{
+        font-size: 32px!important ;
+      }
+    }
+  }
+
+  .paragraph-sc{
+    .layout{
+      padding-top: 40px;
+    }
   }
 }
 
@@ -257,6 +280,10 @@ th, td {
       margin: 0px!important;
       // width: 100%!important;
     }
+  }
+
+  .pl-120{
+    padding-left: 25px;
   }
 }
 

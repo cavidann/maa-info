@@ -4,11 +4,13 @@ h1{
 }
 
 .mat-card-title{
-  min-height: 58px;
+  height: 58px;
+  overflow: hidden;
 }
 
 .mat-card-content{
   p{
-    min-height: 51px;
+    height: 51px;
+    overflow: hidden;
   }
 }

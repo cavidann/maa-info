@@ -61,11 +61,11 @@ export class SearchComponent implements OnInit {
     this.router.navigate([this.lang + '/details', workId]);
   }
 
-  goToParagraphsDetailPage(paragraphTitle){
+  goToParagraphsDetailPage(paragraphTitle) {
     this.router.navigate([this.lang + '/paragraph', paragraphTitle]);
   }
 
-  goToVideosDetailPage(videoTitle){
+  goToVideosDetailPage(videoTitle) {
     this.router.navigate([this.lang + '/videos', videoTitle]);
   }
 

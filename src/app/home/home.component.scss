@@ -1,63 +1,84 @@
+$purple: #3f51b5;
+div, p, h1, h2, h3, h4, h5, h6, .mat-card-title {
+  color: rgba(0,0,0,.54)!important;
+}
+
+
+
 .home-sc{
-  // margin-top: 56px;
-  // height: calc(100vh - 56px);
-  // overflow: auto;
-  color: rgba(0,0,0,.54);
-  h1{
-    font-size: 36px;
-    font-weight: 300;
-    line-height: 56px;
-    margin: 15px 5px;
-    text-transform: capitalize;
-  }
-  h2{
-    font-size: 25px;
-    font-weight: 400;
-    margin: 0 0 16px;
-    padding: 0;
-  }
-  p{
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 28px;
-    margin: 0 0 24px;
-    padding: 0;
-  }
-  .h-1{
-    background: #3f51b5;
-    color: white;
-    padding: 60px 0px;
-    *{
-      text-transform: capitalize;
-    }
-    h1{
-      font-size: 56px;
-    }
-    h2{
-      font-size: 18px;
-      font-weight: 300;
-      line-height: 28px;
-      margin: 15px 0 25px;
-      margin-bottom: 60px;
-    }
-  }
-  .h-2, .h-3{
-    padding: 60px 0px;
-  }
-}
-
-@media only screen and (max-width: 840px){
-  .home-sc{
-    .col-33{
-      width: 50%;
-    }
-  }
-}
-
-@media only screen and (max-width: 570px){
-  .home-sc{
-    .col-50, .col-33{
+  background: $purple;
+  .img-outer{
+    height: 100%;
+    text-align: right;
+    position: relative;
+    overflow: hidden;
+    img{
+      position: absolute;
+      right: -50vw;
+      top: 50%;
+      transform: translateY(-50%);
       width: 100%;
+      transition: .3s ease-in-out;
+      &.active{
+        right: 0px;
+        animation: fly 2s linear infinite!important;
+      }
     }
+  }
+}
+
+
+@keyframes fly {
+  0% {margin-top: 0px;}
+  50% {margin-top: -10px;}
+  100% {margin-top: 0px;}
+}
+
+.home-sc, .video-sc, .paragraph-sc, .news-sc{
+  &>div{
+    min-height: calc(100vh - 56px);
+    h1{
+      font-size: 40px;
+      padding: 60px 0px;
+      margin: 0px;
+    }
+  }
+}
+
+.example-button-row{
+  padding: 60px 0px;
+}
+
+.home-sc{
+  h1{
+    padding-bottom: 0px!important;
+  }
+}
+
+.paragraph-sc{
+  background-size: cover!important;
+  background-attachment: fixed!important;
+
+}
+
+.layout{
+  background-color: rgba(black, 0.8);
+}
+
+.mat-card-title{
+  height: 58px;
+  overflow: hidden;
+}
+
+.mat-card-content{
+  p{
+    height: 51px;
+    overflow: hidden;
+  }
+}
+
+section:nth-child(odd) {
+  h1, h2{
+    color: white!important;
   }
 }

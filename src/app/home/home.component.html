@@ -1,107 +1,136 @@
-<section class="home-sc">
-  <div class="t-center h-1">
-    <h1>Maa Info</h1>
-    <h2>For aviation lovers</h2>
-    <div class="example-button-row">
-      <!-- <button mat-raised-button [routerLink]="['/paragraph']">
-        {{'start-btn' | translate}}
-      </button> -->
+<section class="home-sc flex">
+  <div class="capitalize flex a-center wrap col-100">
+    <div class="col-50 pl-120">
+      <h1 style="max-width: 500px">{{ 'homeTitle.title-1' | translate }}</h1>
+      <h2 class="col-100">{{ 'homeTitle.title-2' | translate }}</h2>
+      <div class="example-button-row">
+        <button class="capitalize" routerLink="/{{ lang }}/paragraph" mat-raised-button>
+          {{ "start-learn" | translate }}
+        </button>
+      </div>
     </div>
-  </div>
-  <h1 class="capitalize" style="min-height: calc(100vh - 436px)">
-    home page is not ready :)
-    Check others
-  </h1>
-  <!-- <div class="container h-3 flex wrap a-center">
-    <div class="col-50 p-10">
+    <div class="col-50 img-outer">
       <img
-        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-        alt="Photo of a Shiba Inu"
-      />
-    </div>
-    <div class="col-50 p-10">
-      <h2>Sprint from Zero to App</h2>
-      <p>
-        Hit the ground running with comprehensive, modern UI components that
-        work across the web, mobile and desktop.
-      </p>
-    </div>
-  </div>
-  <div class="container h-3 flex wrap a-center">
-    <div class="col-50 p-10">
-      <h2>Sprint from Zero to App</h2>
-      <p>
-        Hit the ground running with comprehensive, modern UI components that
-        work across the web, mobile and desktop.
-      </p>
-    </div>
-    <div class="col-50 p-10">
-      <img
-        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-        alt="Photo of a Shiba Inu"
+        *ngFor="let image of images"
+        [class.active]="image.name === activeImgName"
+        class="active"
+        src="assets/images/{{ image.name }}.png"
+        alt="{{ image.name }}"
       />
     </div>
   </div>
-  <div class="container h-2 flex wrap">
-    <h1 class="col-100 t-center">{{'posts' | translate}}</h1>
-    <div class="col-33 p-10">
-      <mat-card class="example-card">
-        <img
-          mat-card-image
-          src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-          alt="Photo of a Shiba Inu"
-        />
-        <div class="link" [routerLink]="['/paragraph/3']">
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </div>
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz
-            breeds of dog from Japan.
-          </p>
-        </mat-card-content>
-      </mat-card>
-    </div>
-    <div class="col-33 p-10">
-      <mat-card class="example-card">
-        <img
-          mat-card-image
-          src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-          alt="Photo of a Shiba Inu"
-        />
-        <div class="link" [routerLink]="['/paragraph/3']">
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </div>
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz
-            breeds of dog from Japan.
-          </p>
-        </mat-card-content>
-      </mat-card>
-    </div>
-    <div class="col-33 p-10">
-      <mat-card class="example-card">
-        <img
-          mat-card-image
-          src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-          alt="Photo of a Shiba Inu"
-        />
-        <div class="link" [routerLink]="['/paragraph/3']">
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </div>
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz
-            breeds of dog from Japan.
-          </p>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </div> -->
-  <!-- <app-footer></app-footer> -->
 </section>
 
+<!-- <div style="background: url(assets/images/i-1.png) no-repeat; background-size: cover; background-attachment: fixed;"> -->
+  <section class="video-sc">
+    <div class="flex a-center">
+      <div
+        *ngIf="searchedVideos.length > 0"
+        class="flex wrap pt-28 pb-28 container"
+      >
+        <h1 class="col-100 capitalize p-10 t-center">{{ "videos" | translate }}</h1>
+        <div class="col-33 p-10" *ngFor="let videos of searchedVideos">
+          <mat-card
+            class="example-card link"
+            (click)="goToVideosDetailPage(videos.fields.title)"
+          >
+            <div>
+              <img
+                mat-card-image
+                src="//img.youtube.com/vi/{{ videos.fields.videoId }}/0.jpg"
+                alt="Photo of a {{ videos.fields.title }}"
+              />
+            </div>
+            <mat-card-title class="capitalize">
+              {{ videos.fields.title | slice: 0:40 }}
+              <span *ngIf="videos.fields.title.length > 40">...</span>
+            </mat-card-title>
+          </mat-card>
+        </div>
+        <div class="example-button-row col-100 flex j-center">
+          <button
+            class="capitalize white"
+            routerLink="/{{ lang }}/videos"
+            mat-raised-button
+            color="primary"
+          >
+            {{ "more" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="paragraph-sc"
+    style="background: url(assets/images/l-3.svg) no-repeat;"
+  >
+    <div class="layout flex a-center">
+      <div
+        *ngIf="searchedParagraphs.length > 0"
+        class="flex wrap pt-28 pb-28 container"
+      >
+        <h1 class="col-100 capitalize p-10 t-center">{{ "paragraph" | translate }}</h1>
+        <div class="col-33 p-10" *ngFor="let paragraph of searchedParagraphs">
+          <mat-card
+            class="example-card link"
+            (click)="goToParagraphsDetailPage(paragraph.fields.title)"
+          >
+            <mat-card-title class="capitalize">
+              {{ paragraph.fields.title | slice: 0:40 }}
+              <span *ngIf="paragraph.fields.title.length > 40">...</span>
+            </mat-card-title>
+            <mat-card-content>
+              <p>
+                {{ paragraph.fields.shortDesc | slice: 0:100 }}
+                <span *ngIf="paragraph.fields.shortDesc.length > 100">...</span>
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="example-button-row col-100 flex j-center">
+          <button class="capitalize" routerLink="/{{ lang }}/paragraph" mat-raised-button>
+            {{ "more" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="news-sc">
+    <div class="flex a-center">
+      <div
+        *ngIf="searchedNews.length > 0"
+        class="flex wrap pt-28 pb-28 container"
+      >
+        <h1 class="col-100 capitalize p-10 t-center">{{ "news" | translate }}</h1>
+        <div class="col-33 p-10" *ngFor="let news of searchedNews">
+          <mat-card
+            class="example-card link"
+            (click)="goToNewsDetailPage(news.sys.id)"
+          >
+            <img
+              mat-card-image
+              [src]="news.fields.image.fields.file.url"
+              alt="Photo of a {{ news.fields.title }}"
+            />
+            <mat-card-title class="capitalize">
+              {{ news.fields.title | slice: 0:40 }}
+              <span *ngIf="news.fields.title.length > 40">...</span>
+            </mat-card-title>
+            <mat-card-content>
+              <p>
+                {{ news.fields.shortDesc | slice: 0:100 }}
+                <span *ngIf="news.fields.shortDesc.length > 100">...</span>
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="example-button-row col-100 flex j-center">
+          <button class="capitalize white" routerLink="/{{ lang }}/news" mat-raised-button color="primary">
+            {{ "more" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- </div> -->
