@@ -43,6 +43,7 @@
     <div class="flex group-3">
       <div class="search flex">
         <form
+          [class.hide]="isHidden()"
           class="flex"
           [formGroup]="searchForm"
           (ngSubmit)="searchContent(searchForm.value)"

@@ -1,4 +1,27 @@
 <div class="container min-h-100-112">
+  <div class="search">
+    <form
+      class="flex"
+      [formGroup]="searchForm"
+      (ngSubmit)="search(lang, searchForm.value)"
+    >
+      <input
+        type="text"
+        name="search"
+        id="search"
+        placeholder="{{ 'search' | translate }}..."
+        formControlName="search"
+      />
+      <button
+        type="submit"
+        class="search-btn"
+        [class.active]="searchForm.valid"
+        [disabled]="!searchForm.valid"
+      >
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
+    </form>
+  </div>
   <div
     *ngIf="searchedNews.length > 0; else loadNews"
     class="flex wrap pt-28 pb-28"
@@ -12,7 +35,7 @@
         <img
           mat-card-image
           [src]="news.fields.image.fields.file.url"
-          alt="Photo of a {{news.fields.title}}"
+          alt="Photo of a {{ news.fields.title }}"
         />
         <mat-card-title class="capitalize">
           {{ news.fields.title | slice: 0:40 }}
@@ -62,13 +85,13 @@
         class="example-card link"
         (click)="goToVideosDetailPage(videos.fields.title)"
       >
-      <div>
-        <img
+        <div>
+          <img
             mat-card-image
-            src="//img.youtube.com/vi/{{videos.fields.videoId}}/0.jpg"
-            alt="Photo of a {{videos.fields.title}}"
+            src="//img.youtube.com/vi/{{ videos.fields.videoId }}/0.jpg"
+            alt="Photo of a {{ videos.fields.title }}"
           />
-      </div>
+        </div>
         <mat-card-title class="capitalize">
           {{ videos.fields.title | slice: 0:40 }}
           <span *ngIf="videos.fields.title.length > 40">...</span>

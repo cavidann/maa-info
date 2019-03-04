@@ -13,11 +13,6 @@ export class TopMenuComponent implements OnInit {
   defaultLang: string;
   lang: string;
   searchForm: FormGroup;
-  // searchedWorks: '';
-
-  // get search() {
-  //   return this.searchForm.get('search');
-  // }
 
   constructor(
     private translate: TranslateService,
@@ -56,6 +51,10 @@ export class TopMenuComponent implements OnInit {
 
   searchContent(searchForm) {
     this.router.navigate([this.lang + '/search', searchForm.search]);
+  }
+
+  isHidden() {
+    return this.router.url.includes('search');
   }
 
 }
